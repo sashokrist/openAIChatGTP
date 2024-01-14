@@ -20,7 +20,10 @@ class OpenAIController extends Controller
 
     public function index()
     {
-        $sessions = Chat::orderBy('created_at', 'desc')->take(10)->get();
+        $userId = auth()->id();
+
+        $sessions = Chat::where('user_id', $userId)->take(10)->get();
+
         return view('openai', compact('sessions'));
     }
 
@@ -48,8 +51,8 @@ class OpenAIController extends Controller
 
     public function fetchChatHistory()
     {
-        $chats = Chat::latest()->get(); // Fetch chats in the desired order
-        return response()->json($chats); // Return the chats as JSON
+        $chats = Chat::where('user_id', auth()->user())->latest()->get();
+        return response()->json($chats);
     }
 
 
