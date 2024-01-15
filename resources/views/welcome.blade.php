@@ -826,7 +826,7 @@
                     </g>
                 </svg>
             </svg>
-            <h1 class="text-center" style="color: white; font-size: 22px; margin-top: 5px;">ASK Jeeves</h1>
+            <h1 class="text-center" style="color: white; font-size: 42px; margin-top: 5px;">ASK Jeeves</h1>
             <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                  stroke="#ffffff" style="margin-left: 5px;">
                 <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -845,7 +845,7 @@
         @if(auth()->check())
             <a href="{{ route('openai.index') }}" class="chat-link mt-2"> <p style="font-size: 22px;">Enter Chat</p></a>
         @else
-            <p class="mt-2" style="font-size: 22px; color: red">Please log in to enter the chat</p>
+            <a href="{{ route('login') }}"> <p class="mt-2" style="font-size: 22px; color: red">Please log in to enter the chat</p></a>
         @endif
 
         <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">

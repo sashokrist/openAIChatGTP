@@ -22,7 +22,7 @@ class OpenAIController extends Controller
     {
         $userId = auth()->id();
 
-        $sessions = Chat::where('user_id', $userId)->take(10)->get();
+        $sessions = Chat::with('user')->where('user_id', $userId)->latest()->get();
 
         return view('openai', compact('sessions'));
     }
@@ -51,7 +51,7 @@ class OpenAIController extends Controller
 
     public function fetchChatHistory()
     {
-        $chats = Chat::where('user_id', auth()->user())->latest()->get();
+        $chats = Chat::with('user')->where('user_id', auth()->id())->latest()->get();
         return response()->json($chats);
     }
 
