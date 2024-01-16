@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Ask Jeeves</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -808,6 +808,7 @@
                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                 @endif
             @endauth
+                @include('partials/language_switcher')
         </div>
     @endif
 
@@ -826,7 +827,7 @@
                     </g>
                 </svg>
             </svg>
-            <h1 class="text-center" style="color: white; font-size: 42px; margin-top: 5px;">ASK Jeeves</h1>
+            <h1 class="text-center" style="color: white; font-size: 42px; margin-top: 5px;">{{ __('ASK Jeeves')}}</h1>
             <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                  stroke="#ffffff" style="margin-left: 5px;">
                 <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -843,9 +844,9 @@
         </div>
         <br>
         @if(auth()->check())
-            <a href="{{ route('openai.index') }}" class="chat-link mt-2"> <p style="font-size: 22px;">Enter Chat</p></a>
+            <a href="{{ route('openai.index') }}" class="chat-link mt-2"> <p style="font-size: 22px;">{{ __('Enter Chat') }}</p></a>
         @else
-            <a href="{{ route('login') }}"> <p class="mt-2" style="font-size: 22px; color: red">Please log in to enter the chat</p></a>
+            <a href="{{ route('login') }}"> <p class="mt-2" style="font-size: 22px; color: red">{{ __('Please log in to enter the chat') }}</p></a>
         @endif
 
         <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
@@ -862,7 +863,7 @@
                 </div>
             </div>
             <footer class="text-center mt-4">
-                <h6 style="color: white">All rights reserved SASHO_DEV 2023 | Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP
+                <h6 style="color: white">{{ __('All rights reserved') }} SASHO_DEV 2023 | Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP
                     v{{ PHP_VERSION }})</h6>
             </footer>
 
