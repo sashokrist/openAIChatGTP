@@ -1,6 +1,8 @@
 
 ## About OpenAIChatGTP
 
+Link to project: https://your-vibration.com/
+
 To install and run the project follow these steps:
 
 run in console:
