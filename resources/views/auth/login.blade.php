@@ -5,32 +5,30 @@
         <div class="col-6">
             <form method="POST" action="{{ route('login') }}" class="container mt-5">
                 @csrf
-
                 <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')" />
-
+                <x-auth-session-status class="mb-4" :status="session('status')"/>
                 <!-- Email Address -->
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="email" class="form-label text-white">{{ __('Email') }}</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="email" class="form-control" id="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-                        <x-input-error :messages="$errors->get('email')" class="text-danger mt-2" />
+                        <input type="email" class="form-control" id="email" name="email" :value="old('email')" required
+                               autofocus autocomplete="username">
+                        <x-input-error :messages="$errors->get('email')" class="text-danger mt-2"/>
                     </div>
                 </div>
-
                 <!-- Password -->
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="password" class="form-label text-white">{{ __('Password') }}</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
-                        <x-input-error :messages="$errors->get('password')" class="text-danger mt-2" />
+                        <input type="password" class="form-control" id="password" name="password" required
+                               autocomplete="current-password">
+                        <x-input-error :messages="$errors->get('password')" class="text-danger mt-2"/>
                     </div>
                 </div>
-
                 <!-- Remember Me -->
                 <div class="row mb-3">
                     <div class="col-md-8 offset-md-4">
@@ -42,7 +40,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-8 offset-md-4">
                         @if (Route::has('password.request'))
@@ -57,4 +54,5 @@
             </form>
         </div>
     </div>
+    @include('partials.footer')
 @endsection
