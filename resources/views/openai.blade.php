@@ -1,35 +1,18 @@
 @extends('layouts.app2')
 
 @section('content')
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    <div class="relative min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <h1 class="text-center mb-4">
-            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                 stroke="#ffffff">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <path
-                        d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </g>
-            </svg>
+            <svg style="margin-right: 10px;" height="44px" width="44px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#d28383" stroke="#d28383"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:white;} </style> <g> <path class="st0" d="M392.692,257.322c-1.172-8.125-2.488-16.98-3.807-25.984c-5.856-39.012-12.59-81.688-14.86-87.832 c-4.318-11.715-18.371-44.723-68.217-25.984c-15.738,5.926-18.812,11.93-41.648,8.93c-17.273-2.27-28.326-15.59-52.336-24.668 c-49.844-18.883-71.584,11.711-75.902,23.422c-2.27,6.148-9.004,67.121-14.86,106.133c-1.39,8.86-2.633,17.566-3.804,25.621 c37.256,7.535,84.174,12.879,138.705,12.879C309.541,269.837,355.801,264.716,392.692,257.322z"></path> <path class="st0" d="M443.707,306.509c-8.051-2.196-16.834-4.246-26.057-6.148c-1.83-0.805-3.66-1.535-5.49-2.27h-0.072 c-46.918,10.394-102.254,15.664-156.125,15.664c-53.652,0-108.768-5.27-155.541-15.516c-1.316,0.512-2.707,1.098-4.098,1.684 c-8.858,1.828-17.348,3.73-25.106,5.781l-0.148,0.074C27.008,317.49,0,333.372,0,350.939c0,36.012,114.549,65.289,256.035,65.289 c141.34,0,255.965-29.278,255.965-65.289C512,333.74,486.016,318.22,443.707,306.509z"></path> </g> </g></svg>
+
             {{ __('ASK Jeeves')}}
-             <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                  stroke="#ffffff">
-                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                 <g id="SVGRepo_iconCarrier">
-                     <path
-                         d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                         stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                 </g>
-             </svg>
-         </h1>
+            <svg style="margin-right: 10px;" height="44px" width="44px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#d28383" stroke="#d28383"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:white;} </style> <g> <path class="st0" d="M392.692,257.322c-1.172-8.125-2.488-16.98-3.807-25.984c-5.856-39.012-12.59-81.688-14.86-87.832 c-4.318-11.715-18.371-44.723-68.217-25.984c-15.738,5.926-18.812,11.93-41.648,8.93c-17.273-2.27-28.326-15.59-52.336-24.668 c-49.844-18.883-71.584,11.711-75.902,23.422c-2.27,6.148-9.004,67.121-14.86,106.133c-1.39,8.86-2.633,17.566-3.804,25.621 c37.256,7.535,84.174,12.879,138.705,12.879C309.541,269.837,355.801,264.716,392.692,257.322z"></path> <path class="st0" d="M443.707,306.509c-8.051-2.196-16.834-4.246-26.057-6.148c-1.83-0.805-3.66-1.535-5.49-2.27h-0.072 c-46.918,10.394-102.254,15.664-156.125,15.664c-53.652,0-108.768-5.27-155.541-15.516c-1.316,0.512-2.707,1.098-4.098,1.684 c-8.858,1.828-17.348,3.73-25.106,5.781l-0.148,0.074C27.008,317.49,0,333.372,0,350.939c0,36.012,114.549,65.289,256.035,65.289 c141.34,0,255.965-29.278,255.965-65.289C512,333.74,486.016,318.22,443.707,306.509z"></path> </g> </g></svg>
+
+        </h1>
          <div class="container mt-5">
              <div class="row">
                  <!-- Left Sidebar for History -->
-                 <div class="col-md-3 sidebar mt-3">
+                 <div class="col-lg-3 d-none d-lg-block sidebar mt-3">
                      <h3 class="text-center">{{ __('Chat History') }}</h3>
 
                      @forelse ($sessions as $chat)
@@ -49,7 +32,7 @@
                 </div>
 
                 <!-- Main Chat Area -->
-                <div class="col-md-6">
+                <div class="col-lg-6 col-12">
                     <div class="card card-custom">
                         <div class="card-body">
                             <div id="chat" class="chat-box"></div>
@@ -61,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 sidebar mt-3">
+                <div class="col-lg-3 d-none d-lg-block sidebar mt-3">
                     <h3 class="text-center">{{ __('Most Asked') }}</h3>
                     <h4>{{ __('Food') }}</h4>
                     <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What Are Healthy Diet Options?' : __('What Are Healthy Diet Options?') }}">
@@ -154,6 +137,7 @@
 
             </div>
             <footer class="text-center mt-4">
+                <h6>Thanks to mr. P. G. Wodehouse</h6>
                 <h6>All rights reserved SASHO_DEV 2023 | Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP
                     v{{ PHP_VERSION }})</h6>
             </footer>
