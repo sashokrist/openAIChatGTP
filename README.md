@@ -17,7 +17,7 @@ cp .env.example .env
 
 php artisan key:generate
 
-Set database credentials in .env
+Set database credentials in .env need OPENAI_API_KEY form https://platform.openai.com/apps
 
 php artisan migrate
 
