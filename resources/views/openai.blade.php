@@ -1,125 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI Chat</title>
-    <!-- Include Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        p {
-            margin: 0;
-            color: white;
-        }
+@extends('layouts.app2')
 
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: bold;
-            color: white;
-        }
-
-        .container {
-            max-width: 100%;
-            background: #343541;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .chat-box {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #343541;
-            color: white;
-            font-size: 18px;
-            height: 300px;
-            overflow-y: auto;
-        }
-
-        .card-custom {
-            background: #343541;
-        }
-
-        .response {
-            background-color: black;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .sidebar {
-            border: 1px solid #ddd;
-            background-color: black;
-            width: 100%;
-            resize: both; /* Make div resizable in both directions */
-            overflow: auto; /* Add scrollbars as necessary */
-            max-height: 600px; /* Set a maximum height */
-            padding: 10px;
-        }
-
-
-        button {
-            background-color: #343541;
-            color: white;
-            border: 1px solid white;
-        }
-
-        button:hover {
-            background-color: #343541;
-            color: white;
-            border: 1px solid white;
-        }
-
-        .question {
-            cursor: pointer; /* Changes the mouse cursor to a pointer to indicate it's clickable */
-        }
-
-        .question:hover {
-            color: #007bff; /* Change to your preferred hover color */
-        }
-    </style>
-</head>
-
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="">OpenAI</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Right-aligned items -->
-            <ul class="navbar-nav ml-auto">
-                @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>
-                    @endif
-                @endauth
-            </ul>
-            @include('partials/language_switcher')
-        </div>
-    </div>
-</nav>
-<div class="container">
+@section('content')
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <h1 class="text-center mb-4">
@@ -182,50 +63,93 @@
                 </div>
                 <div class="col-md-3 sidebar mt-3">
                     <h3 class="text-center">{{ __('Most Asked') }}</h3>
-
                     <h4>{{ __('Food') }}</h4>
-                    <p class="question" data-question="Какви са опциите за здравословна диета?">{{ __('What Are Healthy Diet Options?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What Are Healthy Diet Options?' : __('What Are Healthy Diet Options?') }}">
+                        {{ __('What Are Healthy Diet Options?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How to Cook a Specific Dish?">{{ __('How to Cook a Specific Dish?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How to Cook a Specific Dish?' : __('How to Cook a Specific Dish?') }}">
+                        {{ __('How to Cook a Specific Dish?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="What Are the Benefits of [Specific Food/Diet]?">{{ __('What Are the Benefits of [Specific Food/Diet]?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What Are the Benefits of [Specific Food/Diet]?' : __('What Are the Benefits of [Specific Food/Diet]?') }}">
+                        {{ __('What Are the Benefits of [Specific Food/Diet]?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How to Lose/Gain Weight Through Diet?">{{ __('How to Lose/Gain Weight Through Diet?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How to Lose/Gain Weight Through Diet?' : __('How to Lose/Gain Weight Through Diet?') }}">
+                        {{ __('How to Lose/Gain Weight Through Diet?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="What Are Food Allergies and Intolerances?">{{ __('What Are Food Allergies and Intolerances?') }}</p>
-                    <br>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What Are Food Allergies and Intolerances?' : __('What Are Food Allergies and Intolerances?') }}">
+                        {{ __('What Are Food Allergies and Intolerances?') }}
+                    </p>
+                    <hr style="border: white 1px solid">
+
                     <h4>{{ __('Education') }}</h4>
-                    <p class="question" data-question="Can you help me understand this math problem?">{{ __('Can you help me understand this math problem?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'Can you help me understand this math problem?' : __('Can you help me understand this math problem?') }}">
+                        {{ __('Can you help me understand this math problem?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How do I improve my essay writing skills?">{{ __('How do I improve my essay writing skills?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How do I improve my essay writing skills?' : __('How do I improve my essay writing skills?') }}">
+                        {{ __('How do I improve my essay writing skills?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="What are effective study techniques for exams?">{{ __('What are effective study techniques for exams?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What are effective study techniques for exams?' : __('What are effective study techniques for exams?') }}">
+                        {{ __('What are effective study techniques for exams?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="Can you explain the theory of relativity in simple terms?">{{ __('Can you explain the theory of relativity in simple terms?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'Can you explain the theory of relativity in simple terms?' : __('Can you explain the theory of relativity in simple terms?') }}">
+                        {{ __('Can you explain the theory of relativity in simple terms?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="What should I consider when choosing a college major?">{{ __('What should I consider when choosing a college major?') }}</p>
-                    <br>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What should I consider when choosing a college major?' : __('What should I consider when choosing a college major?') }}">
+                        {{ __('What should I consider when choosing a college major?') }}
+                    </p>
+                    <hr style="border: white 1px solid">
+
                     <h4>{{ __('Programming Code') }}</h4>
-                    <p class="question" data-question="Why is my code not working?">{{ __('Why is my code not working?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'Why is my code not working?' : __('Why is my code not working?') }}">
+                        {{ __('Why is my code not working?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How do I start learning [a specific programming language]?">{{ __('How do I start learning [a specific programming language]?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How do I start learning [a specific programming language]?' : __('How do I start learning [a specific programming language]?') }}">
+                        {{ __('How do I start learning [a specific programming language]?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How can I solve this problem algorithmically?">{{ __('How can I solve this problem algorithmically?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How can I solve this problem algorithmically?' : __('How can I solve this problem algorithmically?') }}">
+                        {{ __('How can I solve this problem algorithmically?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="What does this function/method in [programming language] do?">{{ __('What does this function/method in [programming language] do?') }}</p>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What does this function/method in [programming language] do?' : __('What does this function/method in [programming language] do?') }}">
+                        {{ __('What does this function/method in [programming language] do?') }}
+                    </p>
                     <hr style="border: white 1px solid">
-                    <p class="question" data-question="How can I optimize this code for better performance?">{{ __('How can I optimize this code for better performance?') }}</p>
-                    <br>
+                    <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How can I optimize this code for better performance?' : __('How can I optimize this code for better performance?') }}">
+                        {{ __('How can I optimize this code for better performance?') }}
+                    </p>
+                    <hr style="border: white 1px solid">
+
                     <h4>{{ __('Sport') }}</h4>
-                    <p class="question" data-question="What are the basic rules of [specific sport]?">{{ __('What are the basic rules of [specific sport]?') }}</p>
-                    <hr style="border: white 1px solid">
-                    <p class="question" data-question="Who holds the record for [specific achievement] in [sport]?">{{ __('Who holds the record for [specific achievement] in [sport]?') }}</p>
-                    <hr style="border: white 1px solid">
-                    <p class="question" data-question="How can I improve my skills in [specific sport]?">{{ __('How can I improve my skills in [specific sport]') }}</p>
-                    <hr style="border: white 1px solid">
-                    <p class="question" data-question="What are the best exercises for staying fit for [specific sport]?">{{ __('What are the best exercises for staying fit for [specific sport]') }}</p>
-                    <hr style="border: white 1px solid">
-                    <p class="question" data-question="When is the next [major sporting event]?">{{ __('When is the next [major sporting event]?') }}</p>
+                        <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What are the basic rules of [specific sport]?' : __('What are the basic rules of [specific sport]?') }}">
+                            {{ __('What are the basic rules of [specific sport]?') }}
+                        </p>
+                        <hr style="border: white 1px solid">
+                        <p class="question" data-question="{{ App::getLocale() == 'en' ? 'Who holds the record for [specific achievement] in [sport]?' : __('Who holds the record for [specific achievement] in [sport]?') }}">
+                            {{ __('Who holds the record for [specific achievement] in [sport]?') }}
+                        </p>
+                        <hr style="border: white 1px solid">
+                        <p class="question" data-question="{{ App::getLocale() == 'en' ? 'How can I improve my skills in [specific sport]?' : __('How can I improve my skills in [specific sport]?') }}">
+                            {{ __('How can I improve my skills in [specific sport]?') }}
+                        </p>
+                        <hr style="border: white 1px solid">
+                        <p class="question" data-question="{{ App::getLocale() == 'en' ? 'What are the best exercises for staying fit for [specific sport]?' : __('What are the best exercises for staying fit for [specific sport]?') }}">
+                            {{ __('What are the best exercises for staying fit for [specific sport]?') }}
+                        </p>
+                        <hr style="border: white 1px solid">
+                        <p class="question" data-question="{{ App::getLocale() == 'en' ? 'When is the next [major sporting event]?' : __('When is the next [major sporting event]?') }}">
+                            {{ __('When is the next [major sporting event]?') }}
+                        </p>
+                        <hr style="border: white 1px solid">
                 </div>
 
             </div>
@@ -235,8 +159,6 @@
             </footer>
         </div>
     </div>
-
-</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.question').forEach(function (p) {
@@ -359,5 +281,4 @@
             .catch(error => console.error('Error:', error));
     }
 </script>
-</body>
-</html>
+@endsection

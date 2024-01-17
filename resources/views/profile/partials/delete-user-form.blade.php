@@ -52,4 +52,5 @@
             </div>
         </form>
     </x-modal>
+    <hr style="border: white 1px solid">
 </section>

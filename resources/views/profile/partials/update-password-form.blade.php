@@ -45,4 +45,5 @@
             @endif
         </div>
     </form>
+    <hr style="border: white 1px solid">
 </section>
