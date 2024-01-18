@@ -12,7 +12,7 @@
                         <div class="col-md-4">
                             <label for="name" class="form-label text-white">{{ __('Name') }}</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 input-field-container">
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
                                    required
                                    autofocus autocomplete="name">
@@ -26,7 +26,7 @@
                         <div class="col-md-4">
                             <label for="email" class="form-label text-white">{{ __('Email') }}</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 input-field-container">
                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}"
                                    required
                                    autocomplete="username">
@@ -40,7 +40,7 @@
                         <div class="col-md-4">
                             <label for="password" class="form-label text-white">{{ __('Password') }}</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 input-field-container">
                             <input type="password" class="form-control" id="password" name="password" required
                                    autocomplete="new-password">
                             @error('password')
@@ -54,7 +54,7 @@
                             <label for="password_confirmation"
                                    class="form-label text-white">{{ __('Confirm Password') }}</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 input-field-container">
                             <input type="password" class="form-control" id="password_confirmation"
                                    name="password_confirmation"
                                    required autocomplete="new-password">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 offset-md-4">
+                        <div class="col-md-8 input-field-container offset-md-4">
                             <a class="text-decoration-none me-3 align-self-center text-white mr-3"
                                href="{{ route('login') }}">
                                 {{ __('Already registered?') }}

@@ -97,10 +97,17 @@
         color: #007bff; /* Change to your preferred hover color */
     }
 
+    .input-field-container {
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
     @media screen and (max-width: 768px) {
         .form-control {
-            width: 200px; /* Set the width of input fields */
+            width: 300px; /* Set the width of input fields */
         }
+    }
     }
 
 </style>
