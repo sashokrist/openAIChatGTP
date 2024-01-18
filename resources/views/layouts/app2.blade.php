@@ -10,28 +10,33 @@
     <!-- Add your custom styles here -->
 </head>
 <style>
-    body{
+    body
+    {
         background: #343541;
     }
 
-    p {
+    p
+    {
         margin: 0;
         color: white;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6
+    {
         font-weight: bold;
         color: white;
     }
 
-    .container {
+    .container
+    {
         max-width: 100%;
         background: #343541;
         margin: auto;
         padding: 20px;
     }
 
-    .chat-box {
+    .chat-box
+    {
         border: 1px solid #ddd;
         padding: 20px;
         margin-bottom: 20px;
@@ -42,11 +47,13 @@
         overflow-y: auto;
     }
 
-    .card-custom {
+    .card-custom
+    {
         background: #343541;
     }
 
-    .response {
+    .response
+    {
         background-color: black;
         padding: 10px;
         margin: 5px 0;
@@ -61,6 +68,7 @@
         overflow: auto; /* Add scrollbars as necessary */
         max-height: 600px; /* Set a maximum height */
         padding: 10px;
+    }
 
     @media (max-width: 991px) {
         .sidebar {
@@ -68,7 +76,6 @@
             overflow-y: auto;
         }
     }
-
 
     button {
         background-color: #343541;
@@ -89,6 +96,13 @@
     .question:hover {
         color: #007bff; /* Change to your preferred hover color */
     }
+
+    @media screen and (max-width: 768px) {
+        .form-control {
+            width: 200px; /* Set the width of input fields */
+        }
+    }
+
 </style>
 <body>
 <div id="app">
