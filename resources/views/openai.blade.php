@@ -56,12 +56,12 @@
                 </div>
 
                 <!-- Main Chat Area -->
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-6 col-12 mx-auto">
                     <div class="card card-custom">
                         <div class="card-body">
                             <div id="chat" class="chat-box"></div>
                             <textarea id="userInput" class="form-control mb-3" rows="3" placeholder="Ask Sasho..."
-                                      style="background: #343541; color: white"></textarea>
+                                      style="background: #343541; color: white; width: 100%;"></textarea>
                             <button id="askButton" onclick="sendMessage()" class="btn btn-info w-100">
                                 {{ __('ASK') }}
                             </button>
