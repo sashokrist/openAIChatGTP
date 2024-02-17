@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OpenAIController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
-    return redirect()->back();
-});
+
+    // Retrieve the returnUrl from the request's query parameters and decode it
+    $returnUrl = urldecode(request()->query('returnUrl', '/'));
+
+    return redirect($returnUrl);
+})->name('language.switch');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +45,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat-history', [OpenAIController::class, 'fetchChatHistory']);
     Route::get('/chat-content/{id}', [OpenAIController::class, 'getContent']);
 
+    //Post
+    Route::post('/post/store', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+
+    //Comments
+    Route::post('/comment/store', [CommentController::class, 'store'])->name('comments.store');
+
 });
+
+//Post
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/post/{id}', [PostController::class, 'show'])->name('posts.show');
 
 require __DIR__.'/auth.php';

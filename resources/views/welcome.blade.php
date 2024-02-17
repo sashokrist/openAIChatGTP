@@ -826,6 +826,12 @@
             <a href="{{ route('login') }}"> <p class="mt-2" style="font-size: 22px; color: red">{{ __('Please log in to enter the chat') }}</p></a>
         @endif
 
+        <a href="{{ route('posts.index') }}" class="btn btn-primary mt-6">
+            <p style="font-size: 22px; color: white; margin-top: 65px; background: blue">{{ __('All about AI') }}</p>
+        </a>
+
+
+
         <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
             <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
                 <div class="flex items-center gap-4">

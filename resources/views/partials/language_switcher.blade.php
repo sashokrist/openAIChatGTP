@@ -3,7 +3,8 @@
         @if($available_locale === $current_locale)
             <span class="ml-2 mr-2 text-gray-700">{{ $locale_name }}</span>
         @else
-            <a class="ml-1 underline ml-2 mr-2" href="language/{{ $available_locale }}">
+            <!-- Generate language switch URL and append returnUrl as a query string -->
+            <a class="ml-1 underline ml-2 mr-2" href="{{ route('language.switch', ['locale' => $available_locale]) }}?returnUrl={{ urlencode(url()->full()) }}">
                 <span>{{ $locale_name }}</span>
             </a>
         @endif

@@ -108,6 +108,9 @@
             width: 300px; /* Set the width of input fields */
         }
     }
+
+    .show-post{
+        background: #343541;
     }
 
 </style>

@@ -10,6 +10,9 @@
             <ul class="navbar-nav ml-auto">
                 @auth
                     <li>
+                        <a class="nav-link" href="{{ route('posts.index') }}">{{ __('All about AI') }}</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="{{ route('openai.index') }}">{{ __('OpenAI') }}</a>
                     </li>
                     <li class="nav-item">
